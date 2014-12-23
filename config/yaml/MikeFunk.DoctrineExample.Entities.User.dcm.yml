@@ -1,6 +1,6 @@
 MikeFunk\DoctrineExample\Entities\User:
   type: entity
-  table: products
+  table: users
   id:
     id:
       type: integer
@@ -9,3 +9,10 @@ MikeFunk\DoctrineExample\Entities\User:
   fields:
     name:
       type: string
+  oneToMany:
+    reportedBugs:
+      targetEntity: Bug
+      mappedBy: reporter
+    assignedBugs:
+      targetEntity: Bug
+      mappedBy: engineer
