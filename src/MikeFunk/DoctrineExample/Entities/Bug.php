@@ -31,11 +31,25 @@ class Bug
     private $description;
 
     /**
-     * related products
+     * engineer user
      *
-     * @var ArrayCollection
+     * @var User
      */
-    protected $products;
+    protected $engineer;
+
+    /**
+     * reporter user
+     *
+     * @var User
+     */
+    protected $reporter;
+
+    /**
+     * product relation
+     *
+     * @var ArrayCollection (default: null)
+     */
+    protected $products = null;
 
     /**
      * dependency injection
@@ -47,6 +61,58 @@ class Bug
         $this->products = new ArrayCollection();
     }
 
+    /**
+     * assign bug to a product
+     *
+     * @param Product $product
+     * @return void
+     */
+    public function assignToProduct(Product $product)
+    {
+        $this->products[] = $product;
+    }
+
+    /**
+     * getter
+     *
+     * @return ArrayCollection|null
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * setter
+     *
+     * @param User $engineer
+     * @return void
+     */
+    public function setEngineer($engineer)
+    {
+        $engineer->assignedToBug($this);
+        $this->engineer = $engineer;
+    }
+
+    /**
+     * getter
+     *
+     * @return User
+     */
+    public function getEngineer()
+    {
+        return $this->engineer;
+    }
+
+    /**
+     * getter
+     *
+     * @return User
+     */
+    public function getReporter()
+    {
+        return $this->reporter;
+    }
 
     /**
      * Get id

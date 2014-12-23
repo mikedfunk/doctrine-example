@@ -3,6 +3,7 @@
 namespace MikeFunk\DoctrineExample\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -22,16 +23,16 @@ class User
     /**
      * reported bugs
      *
-     * @var ArrayCollection
+     * @var ArrayCollection (default: null)
      */
-    protected $reportedBugs;
+    protected $reportedBugs = null;
 
     /**
      * assigned bugs
      *
-     * @var ArrayCollection
+     * @var ArrayCollection (default: null)
      */
-    protected $ArrayCollection;
+    protected $assignedBugs = null;
 
     /**
      * dependency assignment
@@ -44,6 +45,27 @@ class User
         $this->assignedBugs = new ArrayCollection();
     }
 
+    /**
+     * add reported bug for this user
+     *
+     * @param Bug $bug
+     * @return void
+     */
+    public function addReportedBug(Bug $bug)
+    {
+        $this->reportedBugs[] = $bug;
+    }
+
+    /**
+     * add to bugs assigned to this user
+     *
+     * @param Bug $bug
+     * @return void
+     */
+    public function assignedToBug(Bug $bug)
+    {
+        $this->assignedBugs[] = $bug;
+    }
 
     /**
      * Get id

@@ -13,3 +13,13 @@ MikeFunk\DoctrineExample\Entities\Bug:
       type: string
     description:
       type: string
+  manyToOne:
+    reporter:
+      targetEntity: User
+      inversedBy: reportedBugs
+    engineer:
+      targetEntity: User
+      inversedBy: assignedBugs
+  manyToMany:
+    products:
+      targetEntity: Product
