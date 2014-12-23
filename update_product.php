@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * update a product via cle
+ *
+ * @package DoctrineExample
+ * @license MIT License <http://opensource.org/licenses/mit-license.html>
+ */
 require_once 'bootstrap.php';
 
 $productId = $argv[1];

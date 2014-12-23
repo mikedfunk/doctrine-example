@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * create a user via cli
+ *
+ * @package DoctrineExample
+ * @license MIT License <http://opensource.org/licenses/mit-license.html>
+ */
 use MikeFunk\DoctrineExample\Entities\User;
 
 require_once 'bootstrap.php';

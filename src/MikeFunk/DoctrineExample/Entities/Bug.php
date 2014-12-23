@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * bug entity
+ *
+ * @package DoctrineExample
+ * @license MIT License <http://opensource.org/licenses/mit-license.html>
+ */
 namespace MikeFunk\DoctrineExample\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,6 +12,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Bug
+ *
+ * @author Michael Funk <mike@mikefunk.com>
  */
 class Bug
 {

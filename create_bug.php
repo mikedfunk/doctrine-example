@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * create a bug via cli
+ *
+ * @package DoctrineExample
+ * @license MIT License <http://opensource.org/licenses/mit-license.html>
+ */
 require_once 'bootstrap.php';
 
 use MikeFunk\DoctrineExample\Entities\Bug;
@@ -9,7 +14,8 @@ $reporterId = $argv[1];
 $engineerId = $argv[2];
 $productIds = explode(',', $argv[3]);
 
-// get some repositories
+// get some repositories. we could do this off the entity manager but I think
+// that's yucky.
 $userRepository = $entityManager
     ->getRepository('MikeFunk\DoctrineExample\Entities\User');
 $productRepository = $entityManager
