@@ -15,6 +15,8 @@ $dql = "SELECT b, e, r FROM MikeFunk\DoctrineExample\Entities\Bug b JOIN b.engin
 $query = $entityManager->createQuery($dql);
 $query->setMaxResults(30);
 $bugs = $query->getResult();
+// array version
+// $bugs = $query->getArrayResult();
 
 // show the result with children
 foreach ($bugs as $bug) {
