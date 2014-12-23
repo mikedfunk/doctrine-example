@@ -1,0 +1,15 @@
+MikeFunk\DoctrineExample\Entities\Bug:
+  type: entity
+  table: bugs
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    created:
+      type: datetime
+    status:
+      type: string
+    description:
+      type: string

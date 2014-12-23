@@ -1,0 +1,11 @@
+MikeFunk\DoctrineExample\Entities\User:
+  type: entity
+  table: products
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
