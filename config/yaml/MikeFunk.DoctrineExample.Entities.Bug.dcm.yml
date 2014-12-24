@@ -1,5 +1,6 @@
 MikeFunk\DoctrineExample\Entities\Bug:
   type: entity
+  repositoryClass: MikeFunk\DoctrineExample\Repositories\BugRepository
   table: bugs
   id:
     id:
