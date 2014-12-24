@@ -24,3 +24,11 @@ if (!$product) {
 $product->setName($productName);
 echo "Product $productId updated with name $productName\n";
 $entityManager->flush();
+
+// Doctrine follows the UnitOfWork pattern which additionally detects all entities
+// that were fetched and have changed during the request. You don’t have to
+// keep track of entities yourself, when Doctrine already knows about them.
+
+// Updating a product name demonstrates the functionality UnitOfWork of pattern
+// discussed before. We only need to find a product entity and all changes to
+// its properties are written to the database:

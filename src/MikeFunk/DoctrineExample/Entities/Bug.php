@@ -9,6 +9,8 @@ namespace MikeFunk\DoctrineExample\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use MikeFunk\DoctrineExample\Entities\Product;
+use MikeFunk\DoctrineExample\Entities\User;
 
 /**
  * Bug
@@ -81,12 +83,14 @@ class Bug
     /**
      * assign bug to a product
      *
+     * alias to addProduct()
+     *
      * @param Product $product
-     * @return void
+     * @return Bug
      */
     public function assignToProduct(Product $product)
     {
-        $this->products[] = $product;
+        return $this->addProduct($product);
     }
 
     /**
@@ -94,10 +98,10 @@ class Bug
      *
      * @return ArrayCollection|null
      */
-    public function getProducts()
-    {
-        return $this->products;
-    }
+    // public function getProducts()
+    // {
+        // return $this->products;
+    // }
 
     /**
      * setter
@@ -213,10 +217,10 @@ class Bug
     /**
      * Set reporter
      *
-     * @param \MikeFunk\DoctrineExample\Entities\User $reporter
+     * @param User $reporter
      * @return Bug
      */
-    public function setReporter(\MikeFunk\DoctrineExample\Entities\User $reporter = null)
+    public function setReporter(User $reporter = null)
     {
         $this->reporter = $reporter;
 
@@ -226,10 +230,10 @@ class Bug
     /**
      * Add products
      *
-     * @param \MikeFunk\DoctrineExample\Entities\Product $products
+     * @param Product $products
      * @return Bug
      */
-    public function addProduct(\MikeFunk\DoctrineExample\Entities\Product $products)
+    public function addProduct(Product $products)
     {
         $this->products[] = $products;
 
@@ -239,10 +243,20 @@ class Bug
     /**
      * Remove products
      *
-     * @param \MikeFunk\DoctrineExample\Entities\Product $products
+     * @param Product $products
      */
-    public function removeProduct(\MikeFunk\DoctrineExample\Entities\Product $products)
+    public function removeProduct(Product $products)
     {
         $this->products->removeElement($products);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }

@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * bug entity
+ *
+ * @package DoctrineExample
+ * @license MIT License <http://opensource.org/licenses/mit-license.html>
+ */
 namespace MikeFunk\DoctrineExample\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,6 +12,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Bug
+ *
+ * @author Michael Funk <mike@mikefunk.com>
  */
 class Bug
 {
@@ -21,7 +28,7 @@ class Bug
     private $created;
 
     /**
-     * @var string
+     * @var string OPEN|CLOSED
      */
     private $status;
 
@@ -62,6 +69,16 @@ class Bug
     }
 
     /**
+     * close a bug
+     *
+     * @return void
+     */
+    public function close()
+    {
+        $this->status = 'CLOSED';
+    }
+
+    /**
      * assign bug to a product
      *
      * @param Product $product
@@ -77,10 +94,10 @@ class Bug
      *
      * @return ArrayCollection|null
      */
-    public function getProducts()
-    {
-        return $this->products;
-    }
+    // public function getProducts()
+    // {
+        // return $this->products;
+    // }
 
     /**
      * setter
