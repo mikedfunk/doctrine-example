@@ -1,6 +1,6 @@
 <?php
 /**
- * update a product via cle
+ * update a product via cli
  *
  * @package DoctrineExample
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
