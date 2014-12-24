@@ -28,7 +28,7 @@ class Bug
     private $created;
 
     /**
-     * @var string
+     * @var string OPEN|CLOSED
      */
     private $status;
 
@@ -66,6 +66,16 @@ class Bug
     public function __construct()
     {
         $this->products = new ArrayCollection();
+    }
+
+    /**
+     * close a bug
+     *
+     * @return void
+     */
+    public function close()
+    {
+        $this->status = 'CLOSED';
     }
 
     /**
