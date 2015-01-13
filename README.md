@@ -1,6 +1,19 @@
 Following [this example](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/tutorials/getting-started.html) in the doctrine docs.
 
-Topics covered:
+## To use doctrine in a new project:
+
+1. `composer require doctrine/orm symfony/yaml` _(I prefer yaml configs over annotation configs)_
+2. add [autoload snippet](https://github.com/mikedfunk/dotfiles/blob/master/to_link/UltiSnips/json.snippets#L9-L15) if necessary to autoload your doctrine entities
+3. create a [cli-config.php](https://github.com/mikedfunk/doctrine-example/blob/master/cli-config.php) file in `projectroot/cli-config.php` to use the doctrine cli tool
+4. create yaml configs for your entities in `config/yaml/Namespace.For.My.Entity.dcm.yml`. [Here are some examples](https://github.com/mikedfunk/doctrine-example/tree/master/config/yaml).
+5. generate the entity classes with `vendor/bin/doctrine orm:generate:entities src`. Use this later if new entities or relationships are configured in yaml.
+6. create initial schema in the data store: `vendor/bin/doctrine orm:schema-tool:create`
+7. create a custom repository class that extends `Doctrine\Orm\EntityRepository` and add methods to it
+8. bind it to the entity in the yaml config for the entity e.g.: `repositoryClass: MikeFunk\DoctrineExample\Repositories\BugRepository`
+9. wherever these repositories should be used, [bootstrap](https://github.com/mikedfunk/doctrine-example/blob/master/bootstrap.php) the entityManager with config directory.
+10. if you update the yaml configs, update the schema in place: `vendor/bin/doctrine orm:schema-tool:update --force`
+
+## Topics covered:
 
 * required composer packages and autoloading in `composer.json`
 * yaml config in `config/yaml/*` (yaml: yay! annotations: boo!)
